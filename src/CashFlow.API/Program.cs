@@ -1,9 +1,11 @@
 using CashFlow.API.Controllers.Filters;
 using CashFlow.API.Middleware;
+using CashFlow.Infrastructure;
 using Microsoft.OpenApi;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 

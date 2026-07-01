@@ -11,10 +11,19 @@
 # Visual Studio and VS Code user-specific files
 .vs/
 .vscode/
+.idea/
 *.suo
 *.user
 *.userosscache
 *.sln.docstates
+
+# Local configuration and secrets
+.env
+.env.*
+!.env.example
+appsettings.Local.json
+appsettings.*.Local.json
+appsettings.*.local.json
 
 # NuGet packages
 *.nupkg

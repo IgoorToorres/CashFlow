@@ -1,0 +1,15 @@
+services:
+  cashflow-postgres:
+    image: postgres:16
+    container_name: cashflow-postgres
+    environment:
+      POSTGRES_USER: cashflow
+      POSTGRES_PASSWORD: cashflow123
+      POSTGRES_DB: cashflow
+    ports:
+      - "5432:5432"
+    volumes:
+      - cashflow-postgres-data:/var/lib/postgresql/data
+
+volumes:
+  cashflow-postgres-data:
