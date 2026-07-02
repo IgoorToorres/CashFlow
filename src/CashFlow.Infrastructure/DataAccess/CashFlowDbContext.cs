@@ -19,7 +19,7 @@ internal class CashFlowDbContext : DbContext
 
             entity.HasKey(expense => expense.Id);
 
-            entity.Property(expense => expense.Name)
+            entity.Property(expense => expense.Title)
                 .IsRequired()
                 .HasMaxLength(100);
 

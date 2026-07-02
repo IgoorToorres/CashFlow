@@ -2,6 +2,7 @@ using CashFlow.API.Controllers.Filters;
 using CashFlow.API.Middleware;
 using CashFlow.Infrastructure;
 using Microsoft.OpenApi;
+using CashFlow.Application;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +11,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 
 builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddApplication();
 
 builder.Services.AddSwaggerGen(options =>
 {
