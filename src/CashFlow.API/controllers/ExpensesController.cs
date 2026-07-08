@@ -1,11 +1,14 @@
 ﻿using CashFlow.Application.UseCases.Expenses.Register;
 using CashFlow.Communication.Requests;
+using CashFlow.Communication.Responses;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CashFlow.API.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
+[ProducesResponseType(typeof(ResponseRegisterExpenseJson), StatusCodes.Status201Created)]
+[ProducesResponseType(typeof(ResponseErrorJson), StatusCodes.Status400BadRequest)]
 public class ExpensesController : ControllerBase
 {
     [HttpPost]
@@ -15,4 +18,7 @@ public class ExpensesController : ControllerBase
 
         return Created(string.Empty, response);
     }
+
+
+    
 }
