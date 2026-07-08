@@ -5,6 +5,10 @@
 		<value>O valor deve ser maior que zero.</value>
 		<comment></comment>
 	</data>
+	<data id="7b7dc012-9cf4-43a5-84fc-a52f829fca5b" name="EXPENSE_NOT_FOUND" xml:space="preserve">
+		<value>Despesa não encontrada.</value>
+		<comment></comment>
+	</data>
 	<data id="2d51e8d6-3ef1-4f54-b334-a9c41fd47acb" name="EXPENSES_CANNOT_FOR_THE_FUTURE" xml:space="preserve">
 		<value>As despesas não podem ser referentes ao futuro.</value>
 		<comment></comment>

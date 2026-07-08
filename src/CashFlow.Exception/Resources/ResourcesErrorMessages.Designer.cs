@@ -62,6 +62,11 @@ namespace CashFlow.Exception.Resources {
 		/// <summary>
 		/// 
 		/// </summary>
+		public static string EXPENSE_NOT_FOUND => ResourceManager.GetString("EXPENSE_NOT_FOUND", resourceCulture);
+
+		/// <summary>
+		/// 
+		/// </summary>
 		public static string EXPENSES_CANNOT_FOR_THE_FUTURE => ResourceManager.GetString("EXPENSES_CANNOT_FOR_THE_FUTURE", resourceCulture);
 
 		/// <summary>
