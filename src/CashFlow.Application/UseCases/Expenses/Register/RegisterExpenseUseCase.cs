@@ -6,6 +6,7 @@ using CashFlow.Domain.Entities;
 using CashFlow.Domain.Repositories;
 using CashFlow.Domain.Repositories.Expenses;
 using CashFlow.Exception.ExceptionBase;
+using CashFlow.Application.UseCases.Expenses;
 
 namespace CashFlow.Application.UseCases.Expenses.Register;
 
