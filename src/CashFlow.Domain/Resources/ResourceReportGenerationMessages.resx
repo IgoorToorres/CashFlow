@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<accessability>public</accessability>
+	<data id="e55c62f8-0fb9-4b8f-a7b2-7d9b1b9b4a01" name="AMOUNT" xml:space="preserve">
+		<value>Amount</value>
+		<comment></comment>
+	</data>
+	<data id="a1ab2f02-34df-4f45-8f62-61574e05b5c2" name="DATE" xml:space="preserve">
+		<value>Date</value>
+		<comment></comment>
+	</data>
+	<data id="0b8f8d4d-0764-463f-97a1-71c3f5b3f8f7" name="DESCRIPTION" xml:space="preserve">
+		<value>Description</value>
+		<comment></comment>
+	</data>
+	<data id="3f45a2be-66f4-426e-9a5e-bdf1d0cb0e02" name="PAYMENT_TYPE" xml:space="preserve">
+		<value>Payment Type</value>
+		<comment></comment>
+	</data>
+	<data id="bc43f9bf-b063-4ec5-8544-d1e2a724f0d4" name="TITLE" xml:space="preserve">
+		<value>Title</value>
+		<comment></comment>
+	</data>
+</root>
