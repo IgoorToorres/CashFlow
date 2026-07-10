@@ -1,13 +1,21 @@
 using ClosedXML.Excel;
 using CashFlow.Domain.Resources;
+using CashFlow.Domain.Repositories.Expenses;
+using CashFlow.Domain.Enums;
 
 namespace CashFlow.Application.UseCases.Expenses.Reports.Excel;
 
-public class GenerateExpensesReportExcelUseCase : IGenerateExpensesReportExcelUseCase
+public class GenerateExpensesReportExcelUseCase (IExpensesReadOnlyRepository repository) : IGenerateExpensesReportExcelUseCase
 {
-    public Task<byte[]> Execute(DateOnly month)
+    private const string CURRENT_SYMBOL = "R$";
+    private readonly IExpensesReadOnlyRepository _repository = repository;
+
+    public async Task<byte[]> Execute(DateOnly month)
     {
-        var workbook = new XLWorkbook
+        var expenses = await _repository.FilterByMonth(month);
+        if(expenses.Count is 0) return [];
+
+        using var workbook = new XLWorkbook
         {
             Author = "Igor"
         };
@@ -18,10 +26,40 @@ public class GenerateExpensesReportExcelUseCase : IGenerateExpensesReportExcelUs
 
         InsertHeader(worksheet);
 
+        var row = 2;
+        foreach(var expense in expenses)
+        {
+            worksheet.Cell($"A{row}").Value = expense.Title;
+            worksheet.Cell($"B{row}").Value = expense.Date;
+            worksheet.Cell($"C{row}").Value = ConvertPaymentType(expense.Paymenttype);
+
+            worksheet.Cell($"D{row}").Value = expense.Amount;
+            worksheet.Cell($"D{row}").Style.NumberFormat.Format = $"-{CURRENT_SYMBOL} #,##0.00";
+
+            worksheet.Cell($"E{row}").Value = expense.Description;
+
+            row++;
+        }
+
+        worksheet.Columns().AdjustToContents();
+
+
         using var stream = new MemoryStream();
         workbook.SaveAs(stream);
 
-        return Task.FromResult(stream.ToArray());
+        return stream.ToArray();
+    }
+
+    private string ConvertPaymentType(PaymentType payment)
+    {
+        return payment switch
+        {
+            PaymentType.Cash => ResourceReportGenerationMessages.PAYMENT_TYPE_CASH,
+            PaymentType.CreditCard => ResourceReportGenerationMessages.PAYMENT_TYPE_CREDIT_CARD,
+            PaymentType.DebitCard => ResourceReportGenerationMessages.PAYMENT_TYPE_DEBIT_CARD,
+            PaymentType.EletronicTransfer => ResourceReportGenerationMessages.PAYMENT_TYPE_ELECTRONIC_TRANSFER,
+            _ => string.Empty,
+        };
     }
 
     private static void InsertHeader(IXLWorksheet worksheet)

@@ -17,6 +17,22 @@
 		<value>Payment Type</value>
 		<comment></comment>
 	</data>
+	<data id="f0da571b-5564-4baa-bd84-f73c4f1a8204" name="PAYMENT_TYPE_CASH" xml:space="preserve">
+		<value>Cash</value>
+		<comment></comment>
+	</data>
+	<data id="ef138701-7d08-42f0-9ead-c95ec77e5593" name="PAYMENT_TYPE_CREDIT_CARD" xml:space="preserve">
+		<value>Credit Card</value>
+		<comment></comment>
+	</data>
+	<data id="5bc2b0cc-8765-42b0-8c9e-e6c742b6a90e" name="PAYMENT_TYPE_DEBIT_CARD" xml:space="preserve">
+		<value>Debit Card</value>
+		<comment></comment>
+	</data>
+	<data id="9014cb12-487f-40b8-a1dc-ea079ce366cc" name="PAYMENT_TYPE_ELECTRONIC_TRANSFER" xml:space="preserve">
+		<value>Electronic Transfer</value>
+		<comment></comment>
+	</data>
 	<data id="bc43f9bf-b063-4ec5-8544-d1e2a724f0d4" name="TITLE" xml:space="preserve">
 		<value>Title</value>
 		<comment></comment>

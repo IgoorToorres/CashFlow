@@ -40,4 +40,22 @@ internal class ExpensesRepository(CashFlowDbContext dbContext) : IExpensesReadOn
     {
         _dbContext.Expenses.Update(expense);
     }
+
+    public async Task<List<Expense>> FilterByMonth(DateOnly date)
+    {
+
+        var startDate = new DateTime(date.Year, date.Month, 1, 0, 0, 0, DateTimeKind.Utc);
+
+        var daysInMonth = DateTime.DaysInMonth(date.Year, date.Month);
+
+        var endDate = new DateTime(date.Year, date.Month, daysInMonth, 23, 59, 59, DateTimeKind.Utc);
+
+        return await _dbContext
+            .Expenses
+            .AsNoTracking()
+            .Where(expense => expense.Date >= startDate && expense.Date <= endDate)
+            .OrderBy(expense => expense.Date)
+            .ThenBy(expense => expense.Title)
+            .ToListAsync();
+    }
 }

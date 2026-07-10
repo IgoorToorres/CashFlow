@@ -77,6 +77,26 @@ namespace CashFlow.Domain.Resources {
 		/// <summary>
 		/// 
 		/// </summary>
+		public static string PAYMENT_TYPE_CASH => ResourceManager.GetString("PAYMENT_TYPE_CASH", resourceCulture);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		public static string PAYMENT_TYPE_CREDIT_CARD => ResourceManager.GetString("PAYMENT_TYPE_CREDIT_CARD", resourceCulture);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		public static string PAYMENT_TYPE_DEBIT_CARD => ResourceManager.GetString("PAYMENT_TYPE_DEBIT_CARD", resourceCulture);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		public static string PAYMENT_TYPE_ELECTRONIC_TRANSFER => ResourceManager.GetString("PAYMENT_TYPE_ELECTRONIC_TRANSFER", resourceCulture);
+
+		/// <summary>
+		/// 
+		/// </summary>
 		public static string TITLE => ResourceManager.GetString("TITLE", resourceCulture);
 
 	}
