@@ -13,6 +13,10 @@
 		<value>Descrição</value>
 		<comment></comment>
 	</data>
+	<data id="7a12508c-7b48-4b2a-9400-3f50a8b18adf" name="EXPENSES_FOR" xml:space="preserve">
+		<value>Despesas para</value>
+		<comment></comment>
+	</data>
 	<data id="3f45a2be-66f4-426e-9a5e-bdf1d0cb0e02" name="PAYMENT_TYPE" xml:space="preserve">
 		<value>Tipo de pagamento</value>
 		<comment></comment>
@@ -35,6 +39,10 @@
 	</data>
 	<data id="bc43f9bf-b063-4ec5-8544-d1e2a724f0d4" name="TITLE" xml:space="preserve">
 		<value>Título</value>
+		<comment></comment>
+	</data>
+	<data id="439a4de3-40e0-4465-90c3-746bc754e12f" name="TOTAL_SPENT_IN" xml:space="preserve">
+		<value>Total gasto em {0}</value>
 		<comment></comment>
 	</data>
 </root>
