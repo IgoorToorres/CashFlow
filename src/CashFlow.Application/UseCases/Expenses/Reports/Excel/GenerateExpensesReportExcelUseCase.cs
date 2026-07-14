@@ -31,7 +31,7 @@ public class GenerateExpensesReportExcelUseCase (IExpensesReadOnlyRepository rep
         {
             worksheet.Cell($"A{row}").Value = expense.Title;
             worksheet.Cell($"B{row}").Value = expense.Date;
-            worksheet.Cell($"C{row}").Value = ConvertPaymentType(expense.Paymenttype);
+            worksheet.Cell($"C{row}").Value = expense.Paymenttype.PaymentTypeToString();
 
             worksheet.Cell($"D{row}").Value = expense.Amount;
             worksheet.Cell($"D{row}").Style.NumberFormat.Format = $"-{CURRENT_SYMBOL} #,##0.00";
@@ -48,18 +48,6 @@ public class GenerateExpensesReportExcelUseCase (IExpensesReadOnlyRepository rep
         workbook.SaveAs(stream);
 
         return stream.ToArray();
-    }
-
-    private string ConvertPaymentType(PaymentType payment)
-    {
-        return payment switch
-        {
-            PaymentType.Cash => ResourceReportGenerationMessages.PAYMENT_TYPE_CASH,
-            PaymentType.CreditCard => ResourceReportGenerationMessages.PAYMENT_TYPE_CREDIT_CARD,
-            PaymentType.DebitCard => ResourceReportGenerationMessages.PAYMENT_TYPE_DEBIT_CARD,
-            PaymentType.EletronicTransfer => ResourceReportGenerationMessages.PAYMENT_TYPE_ELECTRONIC_TRANSFER,
-            _ => string.Empty,
-        };
     }
 
     private static void InsertHeader(IXLWorksheet worksheet)
