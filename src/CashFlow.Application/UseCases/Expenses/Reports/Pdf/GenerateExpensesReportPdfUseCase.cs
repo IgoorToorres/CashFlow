@@ -53,6 +53,21 @@ public class GenerateExpensesReportPdfUseCase(IExpensesReadOnlyRepository reposi
 
             AddAmountForExpense(row.Cells[3],expense.Amount);
 
+            if (!string.IsNullOrEmpty(expense.Description))
+            {
+                var descriptionLine = table.AddRow();
+                descriptionLine.Height = HEIGHT_ROW_EXPENSE_TABLE;
+
+                descriptionLine.Cells[0].AddParagraph(expense.Description);
+                descriptionLine.Cells[0].Format.Font = new Font{Name = FontHelper.WORKSANS_REGULAR, Size = 10, Color = ColorsHelper.BLACK};
+                descriptionLine.Cells[0].Shading.Color = ColorsHelper.GREEN_LIGHT;
+                descriptionLine.Cells[0].VerticalAlignment = VerticalAlignment.Center;
+                descriptionLine.Cells[0].MergeRight = 2;
+                descriptionLine.Cells[0].Format.LeftIndent = 20;
+
+                row.Cells[3].MergeDown = 1;
+            }
+
             AddWhiteSpace(table);
 
             
