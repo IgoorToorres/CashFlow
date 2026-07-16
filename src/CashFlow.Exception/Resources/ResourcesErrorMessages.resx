@@ -17,6 +17,10 @@
 		<value>The email is required.</value>
 		<comment></comment>
 	</data>
+	<data id="c15271a1-12da-4db1-9843-dda36f4323a3" name="EMAIL_ALREADY_REGISTERED" xml:space="preserve">
+		<value>This email is already registered.</value>
+		<comment></comment>
+	</data>
 	<data id="e6ceaa7d-4175-4a0e-b91c-6900efcb18d1" name="EMAIL_INVALID" xml:space="preserve">
 		<value>The email is invalid.</value>
 		<comment></comment>

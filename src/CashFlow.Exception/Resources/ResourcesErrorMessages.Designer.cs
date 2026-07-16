@@ -77,6 +77,11 @@ namespace CashFlow.Exception.Resources {
 		/// <summary>
 		/// 
 		/// </summary>
+		public static string EMAIL_ALREADY_REGISTERED => ResourceManager.GetString("EMAIL_ALREADY_REGISTERED", resourceCulture);
+
+		/// <summary>
+		/// 
+		/// </summary>
 		public static string EMAIL_INVALID => ResourceManager.GetString("EMAIL_INVALID", resourceCulture);
 
 		/// <summary>
