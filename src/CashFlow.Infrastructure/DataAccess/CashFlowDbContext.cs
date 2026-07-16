@@ -3,14 +3,47 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CashFlow.Infrastructure.DataAccess;
 
-internal class CashFlowDbContext : DbContext
+public class CashFlowDbContext : DbContext
 {
     public CashFlowDbContext(DbContextOptions<CashFlowDbContext> options) : base(options){}
 
     public DbSet<Expense> Expenses { get; set; }
+    public DbSet<User> Users { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<User>(entity =>
+        {
+            entity.ToTable("Users");
+
+            entity.HasKey(user => user.Id);
+
+            entity.Property(user => user.Name)
+                .IsRequired()
+                .HasMaxLength(100);
+
+            entity.Property(user => user.Email)
+                .IsRequired()
+                .HasMaxLength(255);
+
+            entity.Property(user => user.Password)
+                .IsRequired()
+                .HasMaxLength(2000);
+
+            entity.Property(user => user.UserIdentifier)
+                .IsRequired();
+
+            entity.Property(user => user.Role)
+                .IsRequired()
+                .HasMaxLength(20);
+
+            entity.HasIndex(user => user.Email)
+                .IsUnique();
+
+            entity.HasIndex(user => user.UserIdentifier)
+                .IsUnique();
+        });
+
         modelBuilder.Entity<Expense>(entity =>
         {
             entity.ToTable("Expenses");
@@ -29,6 +62,11 @@ internal class CashFlowDbContext : DbContext
 
             entity.Property(expense => expense.Paymenttype)
                 .IsRequired();
+
+            entity.HasOne(expense => expense.User)
+                .WithMany()
+                .HasForeignKey(expense => expense.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
         });
     }
 }
