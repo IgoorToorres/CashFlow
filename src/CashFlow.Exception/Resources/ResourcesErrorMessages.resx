@@ -13,6 +13,22 @@
 		<value>Expenses cannot be for the future.</value>
 		<comment></comment>
 	</data>
+	<data id="b01f4f5b-47db-44b8-8d61-42f03d4e8344" name="EMAIL_EMPTY" xml:space="preserve">
+		<value>The email is required.</value>
+		<comment></comment>
+	</data>
+	<data id="e6ceaa7d-4175-4a0e-b91c-6900efcb18d1" name="EMAIL_INVALID" xml:space="preserve">
+		<value>The email is invalid.</value>
+		<comment></comment>
+	</data>
+	<data id="c4974171-3873-4f03-a089-2f3527f6a2c2" name="INVALID_PASSWORD" xml:space="preserve">
+		<value>The password must be at least 8 characters long and contain an uppercase letter, a lowercase letter, a number, and a special character.</value>
+		<comment></comment>
+	</data>
+	<data id="d4b77f4d-9d4f-4cce-9b27-01bfdb049c4c" name="NAME_EMPTY" xml:space="preserve">
+		<value>The name is required.</value>
+		<comment></comment>
+	</data>
 	<data id="d8fce88b-a47e-442a-a654-9ae357f5dee0" name="PAYMENT_TYPE_INVALID" xml:space="preserve">
 		<value>Payment Type is not valid</value>
 		<comment></comment>
