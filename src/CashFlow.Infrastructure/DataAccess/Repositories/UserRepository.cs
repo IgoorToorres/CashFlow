@@ -1,12 +1,18 @@
+using CashFlow.Domain.Entities;
 using CashFlow.Domain.Repositories.User;
 using Microsoft.EntityFrameworkCore;
 
 namespace CashFlow.Infrastructure.DataAccess.Repositories;
 
-internal class UserRepository(CashFlowDbContext dbContext) : IUserReadOnlyrepository
+internal class UserRepository(CashFlowDbContext dbContext) : IUserReadOnlyrepository, IUserWriteOnlyRepository
 {
 
     private readonly CashFlowDbContext _dbContext = dbContext;
+
+    public async Task Add(User user)
+    {
+        await _dbContext.Users.AddAsync(user);
+    }
 
     public async Task<bool> ExistActiveUserWithEmail(string email)
     {
