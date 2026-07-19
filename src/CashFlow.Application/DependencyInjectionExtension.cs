@@ -1,3 +1,4 @@
+using AutoMapper;
 using CashFlow.Application.AutoMapper;
 using CashFlow.Application.UseCases.Expenses.Delete;
 using CashFlow.Application.UseCases.Expenses.GetAll;
@@ -8,7 +9,6 @@ using CashFlow.Application.UseCases.Expenses.Reports.Pdf;
 using CashFlow.Application.UseCases.Expenses.Reports.Pdf.Fonts;
 using CashFlow.Application.UseCases.Expenses.Update;
 using CashFlow.Application.UseCases.Users.Register;
-using CashFlow.Domain.Repositories.User;
 using Microsoft.Extensions.DependencyInjection;
 using PdfSharp.Fonts;
 
